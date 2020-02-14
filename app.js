@@ -19,7 +19,7 @@ const User = require('./models/user-schema')
 
 // connection with DB
 const mongoDB = 'mongodb+srv://Artem:qwerty51@luxury-shop-6jbkc.mongodb.net/luxury-market';
-mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true , useCreateIndex: true})
+mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
 
 //pasport midlleware
 passport.use(new LocalStrategy(
@@ -51,6 +51,7 @@ const goodsRouter = require('./routes/goods');
 const itemRouter = require('./routes/item');
 const singupRouter = require('./routes/singup');
 const filterRouter = require('./routes/filter');
+const accountRouter = require('./routes/account');
 
 
 const app = express();
@@ -83,6 +84,7 @@ app.use('/goods', goodsRouter);
 app.use('/signup', singupRouter);
 app.use('/item', itemRouter);
 app.use('/filter', filterRouter);
+app.use('/account', accountRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const passport = require('passport')
 const Goods = require('../models/goods-schema')
 
 router.get('/new', (req, res) => {
@@ -8,18 +9,22 @@ router.get('/new', (req, res) => {
 
 //add new item 
 router.post('/new', async (req, res) => {
+  const { sex, brand, description, image, size, category, price, title } = req.body;
+  const { user } = req;
+  const userID = user._id;
   
-  const { sex, brand, description, image, size, category, price, title } = req.body // Добавить id пользователя, когда будут доделаны сессии
-  await Goods.create({
-    sex: sex,
-    brand: brand,
-    description: description,
-    image: image,
-    size: size,
-    category: category,
-    price: price,
-    title: title
+  const newItem = new Goods({
+    sex,
+    brand,
+    description,
+    image,
+    size,
+    category,
+    price,
+    title,
+    userID
   });
+  await newItem.save();  
   res.redirect('/')
 })
 

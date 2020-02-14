@@ -17,30 +17,30 @@ const goodsSchema = new mongoose.Schema({
     required: true,
   },
   checked: {
-    // This stuff is needed for admin, to check whether fits the description
+    // This stuff is needed for admin, to check whether item fits the description
     type: Boolean,
   },
   image: {
     type: Buffer
   },
   userID: {
-    type: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    type: mongoose.Schema.Types.ObjectId, ref: 'User' 
   },
   // filters
   sex: {
-    type : String,
+    type: String,
     required: true,
   },
   size: {
-    type : String,
+    type: String,
     required: true,
   },
   brand: {
-    type : String,
+    type: String,
     required: true,
   },
   category: {
-    type : String
+    type: String
   }
 })
 
