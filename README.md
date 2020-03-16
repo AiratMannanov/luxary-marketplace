@@ -4,9 +4,9 @@
 
 # Technologies:
 
-  Node js (express), </br>
-  MongoDB, </br>
-  Bootstrap, </br>
+  Node js (express) </br>
+  MongoDB </br>
+  Bootstrap </br>
 
 # MVP Functionality
 
